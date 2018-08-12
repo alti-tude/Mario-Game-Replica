@@ -4,6 +4,7 @@ from colorama import *
 import time
 import GLOBAL
 import debug
+import os
 
 
 def main():
@@ -25,11 +26,12 @@ def main():
         i = i%(config.bgWidth-config.dispSize)
         time.sleep(0.02)
         disp = []
-        debug.dprint("\033[2J \033[100A")
+        if debug.debug:
+            os.system("tput reset")
 
         for j in range(config.bgHeight):
             disp.append(bgLayer[j][i:i+config.dispSize])
-            debug.dprint(''.join(disp[-1]))
+            debug.dprint("\033[32m "+''.join(disp[-1])+" \033[0m")
 
         i = i + 1
         GLOBAL.printout = disp

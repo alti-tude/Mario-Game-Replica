@@ -1,3 +1,5 @@
+from colorama import *
+
 debug = False
 
 def dprint(op):
