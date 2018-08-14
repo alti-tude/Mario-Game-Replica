@@ -17,12 +17,11 @@ class Board:
     @staticmethod
     def border_board(matrix):
         for i in range(config.dispHeight):
-            matrix[i][0] = 'X'
-            matrix[i][-1] = 'X'
+            matrix[i].insert(0, 'X')
+            matrix[i].append('X')
 
-        for i in range(config.dispWidth):
-            matrix[0][i] = 'X'
-            matrix[-1][i] = 'X'
+        matrix.append(['X']*(config.dispWidth+2))
+        matrix.insert(0, ['X']*(config.dispWidth+2))
 
         return matrix
 
@@ -34,8 +33,9 @@ class Board:
             matrix.append(ap)
 
         matrix = self.border_board(matrix)
-        for i in range(config.dispHeight):
+        for i in range(len(matrix)):
             print(''.join(matrix[i][:]))
+
 
 
 if __name__=='__main__':
