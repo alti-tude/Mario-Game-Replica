@@ -3,6 +3,7 @@ import config
 import time
 import GLOBAL
 
+
 class Player(entity.Entity):
     def __init__(self, x, y):
         entity.Entity.__init__(self, x, y, config.player_sprite, 1)

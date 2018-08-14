@@ -37,7 +37,6 @@ class Board:
             print(''.join(matrix[i][:]))
 
 
-
 if __name__=='__main__':
     board = Board()
     board.render(0)
