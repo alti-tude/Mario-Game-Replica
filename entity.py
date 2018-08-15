@@ -31,7 +31,7 @@ class Entity:
             ch = True
             for i in range(len(self.shape_mat)):
                 for j in range(len(self.shape_mat[0])):
-                    if GLOBAL.board.collision_map[y+i][x+j] > 1:
+                    if GLOBAL.board.collision_map[y+i][x+j] == 10:
                         ch = False
                         break
 
