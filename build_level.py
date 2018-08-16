@@ -97,5 +97,5 @@ if __name__ == '__main__':
             GLOBAL.enemy_list[j].next()
             GLOBAL.enemy_list[j].gravity()
 
-        GLOBAL.board.render(0)
+        GLOBAL.board.render(i)
         i = i+1
