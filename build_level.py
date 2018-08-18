@@ -70,6 +70,8 @@ def gen_level():
 def gen_enemies():
     i = 10
 
+    # temp =  enemies.Goomba(9, 24)
+    # GLOBAL.enemy_list[temp.co] = temp
     while i < config.boardWidth - config.dispWidth:
         if random.randint(0, config.seed) % 11 == 0:
             if i%2==0 and valid_pos(i, 24):

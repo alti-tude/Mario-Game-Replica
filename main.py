@@ -8,7 +8,7 @@ import input
 
 build_level.gen_level()
 build_level.gen_decor()
-# build_level.gen_enemies()
+build_level.gen_enemies()
 
 player = player.Player(0,0)
 
@@ -18,6 +18,10 @@ player = player.Player(0,0)
 while True:
     time.sleep(config.tick_size)
     player.gravity()
+    player.collision()
+    for j in GLOBAL.enemy_list:
+        GLOBAL.enemy_list[j].next()
+        GLOBAL.enemy_list[j].gravity()
     a = input.get_input()
     
     if a == 'a':

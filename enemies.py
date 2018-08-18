@@ -6,7 +6,7 @@ class Goomba(entity.Entity):
     co = 20
 
     def __init__(self, x, y):
-        entity.Entity.__init__(self, x, y, config.goomba_sprite, Goomba.co)
+        entity.Entity.__init__(self, x, y, config.goomba_sprite, Goomba.co+1)
         Goomba.co = Goomba.co + 1
         self.direction = 'L'
 

@@ -34,4 +34,4 @@ valid_ip = [
     'w', 'a', 'd'
 ]
 
-tick_size = 0.04
+tick_size = 0.02

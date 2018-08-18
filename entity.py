@@ -4,7 +4,7 @@ import config
 
 class Entity:
 
-    def __init__(self, x, y, shape_mat, code):
+    def __init__(self, x, y, shape_mat, code="none"):
         self.x = x
         self.y = y
         self.shape_mat = shape_mat
@@ -14,13 +14,15 @@ class Entity:
     def copy_sprite(self):
         for i in range(len(self.shape_mat)):
             for j in range(len(self.shape_mat[0])):
-                GLOBAL.board.collision_map[self.y + i][self.x + j] = self.code
+                if self.code!= "none":
+                     GLOBAL.board.collision_map[self.y + i][self.x + j] = self.code
                 GLOBAL.board.board[self.y + i][self.x + j] = self.shape_mat[i][j]
 
     def del_sprite(self):
         for i in range(len(self.shape_mat)):
             for j in range(len(self.shape_mat[0])):
-                GLOBAL.board.collision_map[self.y+i][self.x+j] = 0
+                if self.code!="none":
+                    GLOBAL.board.collision_map[self.y+i][self.x+j] = 0
                 GLOBAL.board.board[self.y+i][self.x+j] = ' '
 
     def mov(self, x, y):
