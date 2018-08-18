@@ -19,14 +19,6 @@ while True:
     time.sleep(config.tick_size)
     player.gravity()
     a = input.get_input()
-    # if not t.is_alive():
-    #     exit(1)
-    # if q.qsize() > 0:
-    #     a = q.get(False)
-        # if a == 'a':
-        #     player.mov(player.x-1, player.y) 
-        # elif a == 'd':
-        #     player.mov(player.x+1, player.y)
     
     if a == 'a':
         player.mov(player.x-1, player.y) 
