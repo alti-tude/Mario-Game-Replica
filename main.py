@@ -12,9 +12,7 @@ build_level.gen_enemies()
 
 player = player.Player(0,0)
 
-# t = threading.Thread(target=input.startIp, args=())
-# t.start()
-# q = GLOBAL.q
+
 while True:
     time.sleep(config.tick_size)
     player.gravity()
@@ -25,10 +23,10 @@ while True:
     a = input.get_input()
     
     if a == 'a':
-        player.mov(player.x-1, player.y) 
+        player.left()
     elif a == 'd':
-        player.mov(player.x+1, player.y)
-    elif a == 'w':
+        player.right()
+    elif a == 'w' and GLOBAL.board.collision_map[player.y+3][player.x] == 10:
         player.jump()
     elif a == 'q':
         break

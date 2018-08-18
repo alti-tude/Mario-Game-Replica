@@ -7,10 +7,28 @@ import GLOBAL
 class Player(entity.Entity):
     def __init__(self, x, y):
         entity.Entity.__init__(self, x, y, config.player_sprite)
+        self.is_jumping = False
+        self.jumping = 0
+
 
     def jump(self):
-        if self.y-7 != 0:
-            self.mov(self.x, self.y-7)
+        self.is_jumping = True
+        self.mov(self.x, self.y-2)
+        self.jumping = 1
+
+
+    def gravity(self):
+        if self.is_jumping and self.jumping != 5:
+            self.mov(self.x, self.y-1)
+            self.jumping += 1
+        elif self.jumping == 5 and self.is_jumping:
+            self.is_jumping = False
+
+        if not self.is_jumping:
+            if GLOBAL.board.collision_map[self.y+5][self.x] == 10: 
+                self.mov(self.x, self.y+1)
+            else:
+                self.mov(self.x, self.y+1)
 
     def right(self):
         self.mov(self.x+1, self.y)
@@ -27,11 +45,6 @@ class Player(entity.Entity):
                     ch = False
                     y = i+self.y
                     goomba_code = GLOBAL.board.collision_map[self.y + i][self.x + j]
-                    # print(y)
-                    # print(self.y)
-                    # print(goomba_code)
-                    # print(GLOBAL.enemy_list)
-                    # exit(1)
                     break
 
             if not ch:
@@ -39,16 +52,11 @@ class Player(entity.Entity):
 
         if not ch:
             if y > self.y:
-                # exit(1)
-                # print("here")
-                # exit(1)
                 GLOBAL.enemy_list[goomba_code].del_sprite()
                 del GLOBAL.enemy_list[goomba_code]
             else:
-            # exit(1)
-                # print("here2")  
-                # exit(1)
                 self.die()
+
 
     def die(self):
         self.mov(0,0)   

@@ -35,3 +35,4 @@ valid_ip = [
 ]
 
 tick_size = 0.02
+jump_limit = 7

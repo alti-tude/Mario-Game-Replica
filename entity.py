@@ -44,7 +44,10 @@ class Entity:
         self.copy_sprite()
 
     def gravity(self):
-        self.mov(self.x, self.y+1)
+        if GLOBAL.board.collision_map[self.y+5][self.x] == 10: 
+            self.mov(self.x, self.y+1)
+        else:
+            self.mov(self.x, self.y+1)
 
     def __del__(self):
         self.del_sprite()
