@@ -29,3 +29,9 @@ cloud_sprite = [
     list(" _(  )_( )_  "),
     list("(_ _  _ _  _)")
 ]
+
+valid_ip = [
+    'w', 'a', 'd'
+]
+
+tick_size = 0.04
