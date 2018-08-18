@@ -28,6 +28,10 @@ while True:
         player.mov(player.x-1, player.y) 
     elif a == 'd':
         player.mov(player.x+1, player.y)
+    elif a == 'w':
+        player.jump()
+    elif a == 'q':
+        break
 
     GLOBAL.board.render(0)
     
