@@ -11,7 +11,7 @@ seed = 12
 
 #player_code = 1
 player_sprite = [
-    list("\o/"),
+    list("\\o/"),
     list("{ }"),
     list("L L")
 ]

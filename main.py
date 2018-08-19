@@ -31,7 +31,7 @@ while True:
     elif a == 'q':
         break
 
-    GLOBAL.board.render(0)
+    GLOBAL.board.render(max(0, player.x-50))
     
 
 

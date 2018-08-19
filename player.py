@@ -25,10 +25,7 @@ class Player(entity.Entity):
             self.is_jumping = False
 
         if not self.is_jumping:
-            if GLOBAL.board.collision_map[self.y+5][self.x] == 10: 
-                self.mov(self.x, self.y+1)
-            else:
-                self.mov(self.x, self.y+1)
+            self.mov(self.x, self.y+1)
 
     def right(self):
         self.mov(self.x+1, self.y)
@@ -44,7 +41,7 @@ class Player(entity.Entity):
                 if GLOBAL.board.collision_map[self.y + i][self.x + j] > 10:
                     ch = False
                     y = i+self.y
-                    goomba_code = GLOBAL.board.collision_map[self.y + i][self.x + j]
+                    code = GLOBAL.board.collision_map[self.y + i][self.x + j]
                     break
 
             if not ch:
@@ -52,14 +49,14 @@ class Player(entity.Entity):
 
         if not ch:
             if y > self.y:
-                GLOBAL.enemy_list[goomba_code].del_sprite()
-                del GLOBAL.enemy_list[goomba_code]
+                GLOBAL.enemy_list[code].del_sprite()
+                del GLOBAL.enemy_list[code]
             else:
                 self.die()
 
 
     def die(self):
-        self.mov(0,0)   
+        self.mov(max(0, self.x-10),0)   
         pass
 
 
