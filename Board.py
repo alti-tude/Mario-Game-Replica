@@ -14,6 +14,8 @@ class Board:
         rep = [0 for i in range(config.boardWidth)]
         self.collision_map = [rep[:] for i in range(config.boardHeight)]
 
+        self.header = {}
+
     @staticmethod
     def border_board(matrix):
         for i in range(config.dispHeight):
@@ -28,6 +30,9 @@ class Board:
     def render(self, start_col):
         os.system("tput reset")
         matrix = []
+        for i in self.header:
+            print(str(i) + ": " + str(self.header[i]))
+
         for i in range(config.dispHeight):
             ap = [self.board[i][j+start_col] for j in range(config.dispWidth)]
             matrix.append(ap)

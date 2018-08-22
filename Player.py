@@ -59,7 +59,8 @@ class Player(entity.Entity):
         y = self.y
         for i in range(3):
             for j in range(3):
-                if GLOBAL.board.collision_map[self.y + i][self.x + j] != 10 and GLOBAL.board.collision_map[self.y + i][self.x + j] != 0:
+                a = GLOBAL.board.collision_map[self.y + i][self.x + j]
+                if a != 10 and  a != 0 and a < 200:
                     ch = False
                     y = i+self.y
                     code = GLOBAL.board.collision_map[self.y + i][self.x + j]
@@ -69,13 +70,20 @@ class Player(entity.Entity):
                 break
 
         if not ch:
-            if code<0:
+            if code<0 and code != -200:
                 del GLOBAL.coin_list[code]
-            elif y > self.y:
+            elif y > self.y and GLOBAL.level == 1:
                 del GLOBAL.enemy_list[code]
+            elif y>self.y and GLOBAL.level == 2:
+                GLOBAL.boss.health -= 1
+                self.mov(self.x-5, self.y)
+                self.jump()
             else:
                 self.die()
                 
+    def fire(self):
+        temp = entity.Bullet(self.x, self.y+1)
+        GLOBAL.bullet_list[temp.code] = temp
 
 
     def die(self):  
