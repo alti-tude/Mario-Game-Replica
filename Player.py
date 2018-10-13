@@ -2,7 +2,7 @@ import entity
 import config
 import time
 import GLOBAL
-
+import os
 
 class Player(entity.Entity):
     def __init__(self, x, y):
@@ -91,8 +91,7 @@ class Player(entity.Entity):
         if self.health>0:
             self.mov(max(0, self.x-10),0)   
         else:
-            self.mov(0,0)
-            self.health = config.player_health
+            GLOBAL.death = True
         
 
 

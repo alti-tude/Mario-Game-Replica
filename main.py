@@ -5,6 +5,7 @@ import config
 import threading
 import time
 import input    
+import os
 
 f = 0
 for level in range(1,3):
@@ -51,11 +52,14 @@ for level in range(1,3):
         GLOBAL.board.header["points"]=GLOBAL.points
         GLOBAL.board.header["health"]=player.health 
         b = int(player.x/config.boardWidth*100)
-        GLOBAL.board.header["progress"]='['+"\033[31m#\033[39m"*+b+"-"*(100-b)+']'
-        GLOBAL.board.header["boss health"]=GLOBAL.boss.health
+        if level==1:
+            GLOBAL.board.header["progress"]='\n['+"\033[31m#\033[39m"*b+"-"*(100-b)+']'
+        if level==2:
+            GLOBAL.board.header["boss health"]=GLOBAL.boss.health
 
         if player.x >= config.boardWidth-(config.dispWidth)/2 and level!=2:
             fin_score = GLOBAL.points
+            os.system("tput reset")
             print("final score: "+str(fin_score))
             print("loading next level")
             time.sleep(3)
@@ -80,7 +84,18 @@ for level in range(1,3):
             player.fire()
 
         GLOBAL.board.render(min(max(0, player.x-50), config.boardWidth - config.dispWidth))
+        if GLOBAL.death:
+            os.system("tput reset")
+            # fin_score += 100
+            print("final score: "+str(GLOBAL.points))
+            print("you lose")
+            break
+
         if GLOBAL.boss.health <= 0:
+            os.system("tput reset")
+            fin_score = GLOBAL.points
+            fin_score += 100
+            print("final score: "+str(fin_score))
             print("you win")
             break
 

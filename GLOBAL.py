@@ -13,6 +13,7 @@ player = Player.Player(0,0)
 boss = enemies.Boss(50,1)
 boss.del_sprite()
 bullet_list ={}
+death = False
 
 def init():
     global player
