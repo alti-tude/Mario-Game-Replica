@@ -1,19 +1,19 @@
-Super Borio Bro V2.3.5.8 (boring ppl since sometime in August)
-~20171018
+# Super Borio Bro V2.3.5.8 (boring ppl since sometime in August)
+~20171018  
 
-Running the game:
-    * "python3 main.py" in the root Directory
-    * configs are in config.py (better left untouched tho)
+### Running the game:  
+* "python3 main.py" in the root Directory
+* configs are in config.py (better left untouched tho)
 
-Controls:
-    * w to jump
-    * a to move left
-    * d to move right
-    * x to fire (only in boss battle)
-    * q to quit
+### Controls:  
+1. w to jump
+2. a to move left
+3. d to move right
+4. x to fire (only in boss battle)
+5. q to quit
 
-Enemies:
-    * jump on enemies to kill them
+### Enemies:
+    1. jump on enemies to kill them
         mmm
         {o}    ->   Goombas (movement and collision detection enebled)
         w w
@@ -22,10 +22,10 @@ Enemies:
         / \    ->   Fast Roomba (smart, like really smart)
         uuu
     
-    * Boss (figure that one out)
+    2 Boss (figure that one out)
 
 
-What is unique here?
+### What is unique here?
     * endless replayability due to random level generation
         - get a new challenge everytime you start anew, with no impossible levels!
     
@@ -49,19 +49,19 @@ What is unique here?
     * easy extensible stat printing
 
 
-OOP(s):
-    * Inheritance(entity class is inherited by enemies and player)
-    * Polymorphism(various features are overided of the entity class to 
-      give the player and different enemies)
-    * Encapsulated
-    * Abstracted
+### OOP(s):
+* Inheritance(entity class is inherited by enemies and player)
+* Polymorphism(various features are overided of the entity class to 
+  give the player and different enemies)
+* Encapsulated
+* Abstracted
 
-Bonus:
-    * smart enemies
-    * color
-    * clouds that disappear due to condensation when you touch them
+### Bonus:
+* smart enemies
+* color
+* clouds that disappear due to condensation when you touch them
 
-Directory structure:
+### Directory structure:
 ├── Board.py
 ├── build_level.py
 ├── collectible.py
