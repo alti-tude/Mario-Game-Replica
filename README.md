@@ -62,14 +62,14 @@
 * clouds that disappear due to condensation when you touch them
 
 ### Directory structure:
-├── Board.py
-├── build_level.py
-├── collectible.py
-├── config.py
-├── enemies.py
-├── entity.py
-├── GLOBAL.py
-├── input.py
-├── main.py
-├── Player.py
-└── requirements.txt
+├── Board.py  
+├── build_level.py  
+├── collectible.py  
+├── config.py  
+├── enemies.py  
+├── entity.py  
+├── GLOBAL.py  
+├── input.py  
+├── main.py  
+├── Player.py  
+└── requirements.txt  
